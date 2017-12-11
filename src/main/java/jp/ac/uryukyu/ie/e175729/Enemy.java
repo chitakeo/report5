@@ -30,14 +30,12 @@ public class Enemy extends LivingThing {
                 opponent.wounded(damage);            }
         }}
 
-
     @Override
-    public void wounded(int damage) {
+    public void wounded(int damage){
         setHitPoint(getHitPoint() - damage);
-        if (getHitPoint() <= 0) {
-            setDead(true);
-
-            System.out.printf("モンスター%sは倒れた。", getName());
+        if( getHitPoint() < 0 ) {
+           setDead(true);
+            System.out.printf("%sは倒れた。\n", getName());
         }
     }
 }
